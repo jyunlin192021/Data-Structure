@@ -1,5 +1,3 @@
-//B093040069 林奕均 
-//2022/12/12
 //製作 Huffman 壓縮軟體
 #include <iostream> 
 #include <cstdlib>
