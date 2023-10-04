@@ -1,12 +1,10 @@
-//B093040069¡@ªL«³§¡ 
-//2021/10/28
-//linked list¤§À³¥Î
+//linked listä¹‹æ‡‰ç”¨
 #include<iostream>
 using namespace std;
 class Node{
 	private:
-		int coef; //«Y¼Æ 
-		int exp;  //¦¸¤è 
+		int coef; //ä¿‚æ•¸ 
+		int exp;  //æ¬¡æ–¹ 
 		Node *next;
 	public:
 		Node(){
@@ -21,14 +19,14 @@ class Poly{
 		Poly(){
 			first=NULL;
 		}
-		bool isEmpty(){								//§PÂ_linked list¤º¬O§_¬°ªÅ 
+		bool isEmpty(){								//åˆ¤æ–·linked listå…§æ˜¯å¦ç‚ºç©º 
 			if(first==NULL){
 				return true;
 			}
 			else
 				return false;
 		}
-		void Delete(int c){							//§R°£Linked list¤º«Y¼Æ¬°cªºnode,¦¹ÃD¥Î¨Ó§R°£«Y¼Æ¬°0ªºnode 
+		void Delete(int c){							//åˆªé™¤Linked listå…§ä¿‚æ•¸ç‚ºcçš„node,æ­¤é¡Œç”¨ä¾†åˆªé™¤ä¿‚æ•¸ç‚º0çš„node 
 			Node *current=first;
 			Node *previous=NULL;
 			while(current!=NULL&&current->coef!=c){
@@ -46,7 +44,7 @@ class Poly{
 				current=NULL;
 			}		
 		}
-		void AddNode(int c,int e){					//¥[¤J·sªºnode,¨Ã±N¬Û¦P¦¸¤èªº¶µ¬Û¥[,¥B«ö·Ó­°¾­±Æ¦C 
+		void AddNode(int c,int e){					//åŠ å…¥æ–°çš„node,ä¸¦å°‡ç›¸åŒæ¬¡æ–¹çš„é …ç›¸åŠ ,ä¸”æŒ‰ç…§é™å†ªæ’åˆ— 
 			Node *newNode=new Node;
 			Node *current=first;
 			Node *previous=NULL;
@@ -81,7 +79,7 @@ class Poly{
 				previous->next=newNode;
 			}	
 		}
-		void Print(){										//¦L¥Xµ²ªG 
+		void Print(){										//å°å‡ºçµæœ 
 			Node *current=new Node;
 			int k=0;
 			current=first;
