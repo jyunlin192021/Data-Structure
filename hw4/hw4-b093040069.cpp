@@ -1,6 +1,4 @@
-//B093040069ªL«³§¡
-//2022.10.04
-//¦è¬v´ÑÃM¤h(knight)¨«§¹´Ñ½Lªº¶¶§Ç(±N¤W¤@­Ó²ßÃD§ï¬°recursive program)
+//è¥¿æ´‹æ£‹é¨å£«(knight)èµ°å®Œæ£‹ç›¤çš„é †åº(å°‡ä¸Šä¸€å€‹ç¿’é¡Œæ”¹ç‚ºrecursive program)
 #include<iostream>
 #include<cstdio>
 #include<iomanip>
@@ -12,9 +10,9 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 	int k=0;
 	while(1)
 	{
-		if( value == n*n )     //³Ì«á¤@­Ó¼Æ¦^¶Ç1 
+		if( value == n*n )     //æœ€å¾Œä¸€å€‹æ•¸å›å‚³1 
 			return 1;
-		if( i-2>=0 && j+1<n && k<1 && a[i-2][j+1]==0  ){       //³]©wK1 	
+		if( i-2>=0 && j+1<n && k<1 && a[i-2][j+1]==0  ){       //è¨­å®šK1 	
 			k=1;
 			i=i-2;
 			j=j+1;
@@ -22,7 +20,7 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 			a[i][j]=value;
 	
 			
-		}else if( i-1>=0 && j+2<n && k<2 && a[i-1][j+2]==0 ){   //³]©wK2 
+		}else if( i-1>=0 && j+2<n && k<2 && a[i-1][j+2]==0 ){   //è¨­å®šK2 
 		
 			k=2;
 			i=i-1;
@@ -31,7 +29,7 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 			a[i][j]=value;
 			
 			
-		} else if( i+1<n && j+2<n && k<3 && a[i+1][j+2]==0 ){   //³]©wK3 
+		} else if( i+1<n && j+2<n && k<3 && a[i+1][j+2]==0 ){   //è¨­å®šK3 
 			
 			k=3;	
 			i=i+1;
@@ -40,7 +38,7 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 			a[i][j]=value;
 		
 			
-		}else if( i+2<n && j+1<n && k<4 && a[i+2][j+1]==0 ){   //³]©wK4 
+		}else if( i+2<n && j+1<n && k<4 && a[i+2][j+1]==0 ){   //è¨­å®šK4 
 			
 			k=4;
 			i=i+2;
@@ -49,7 +47,7 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 			a[i][j]=value;
 			
 			
-		}else if( i+2<n && j-1>=0 && k<5 && a[i+2][j-1]==0 ){  //³]©wK5 
+		}else if( i+2<n && j-1>=0 && k<5 && a[i+2][j-1]==0 ){  //è¨­å®šK5 
 			
 			k=5;
 			i=i+2;
@@ -58,7 +56,7 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 			a[i][j]=value;
 			
 			
-		}else if( i+1<n && j-2>=0 && k<6 && a[i+1][j-2]==0 ){   //³]©wK6 
+		}else if( i+1<n && j-2>=0 && k<6 && a[i+1][j-2]==0 ){   //è¨­å®šK6 
 			
 			k=6;
 			i=i+1;
@@ -67,7 +65,7 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 			a[i][j]=value;
 			
 			
-		}else if( i-1>=0 && j-2>=0 && k<7 && a[i-1][j-2]==0 ){   //³]©wK7 
+		}else if( i-1>=0 && j-2>=0 && k<7 && a[i-1][j-2]==0 ){   //è¨­å®šK7 
 			
 			k=7;
 			i=i-1;
@@ -76,7 +74,7 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 			a[i][j]=value;
 			
 			
-		}else if( i-2>=0 && j-1>=0 && k<8 && a[i-2][j-1]==0 ){   //³]©wK8 
+		}else if( i-2>=0 && j-1>=0 && k<8 && a[i-2][j-1]==0 ){   //è¨­å®šK8 
 			
 			k=8;
 			i=i-2;
@@ -90,13 +88,13 @@ Recursive( int value, int a[][100]  , int i , int j , int n )
 		}
 //		cout<<i<<" "<<j<<" "<<value<<endl; 
 		
-		if(  Recursive( value , a ,  i , j , n ) == 1  ){    //»¼°j 
+		if(  Recursive( value , a ,  i , j , n ) == 1  ){    //éè¿´ 
 			return 1;
-		}else {                                              //°²³]8ºØ¸ô½u³£¤£¦æ,¦^¤W¤@¨B  
-			a[i][j]=0;										//³]¬°0					
-			value--;										//­È-1  
+		}else {                                              //å‡è¨­8ç¨®è·¯ç·šéƒ½ä¸è¡Œ,å›ä¸Šä¸€æ­¥  
+			a[i][j]=0;										//è¨­ç‚º0					
+			value--;										//å€¼-1  
 			
-			if( k == 1){									//8ºØ¸ô½uª¬ªp¤U,i,j°h¦^¤W¤@¨B 
+			if( k == 1){									//8ç¨®è·¯ç·šç‹€æ³ä¸‹,i,jé€€å›ä¸Šä¸€æ­¥ 
 				i=i+2;
 				j=j-1;
 			}if( k ==2 ){
@@ -140,7 +138,7 @@ int main()
 	int n;
 	cin >> n;
 	
-	for( int i=0 ; i<n ; i++ )      //°}¦Cªì­È³]¬°0 
+	for( int i=0 ; i<n ; i++ )      //é™£åˆ—åˆå€¼è¨­ç‚º0 
 	{
 		for( int j=0 ; j<n ; j++ )
 		{
@@ -152,14 +150,14 @@ int main()
 	a[0][0]=1;
 	int value = 1;
 	
-	if( Recursive( 1, a,  0, 0, n ) == 1 ){      //­Y»¼°j¨ç¦¡¦^¶Ç1,¦L¥X¥ş³¡°}¦C 
+	if( Recursive( 1, a,  0, 0, n ) == 1 ){      //è‹¥éè¿´å‡½å¼å›å‚³1,å°å‡ºå…¨éƒ¨é™£åˆ— 
 		for( int i=0 ; i<n ; i++ ){
 			for( int j=0 ;j<n ;j++ ){
 				cout<<setw(2)<<a[i][j]<<" ";
 			}
 			cout<<endl;
 		}
-	}else                                       //¤Ï¤§¦^¶Ç0«hno solution 
+	}else                                       //åä¹‹å›å‚³0å‰‡no solution 
 		cout<<"no solution";
 	
 	
