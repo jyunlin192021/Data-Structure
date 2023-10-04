@@ -1,6 +1,4 @@
-//B093040069ªL«³§¡
-//2022.10.02
-//¦è¬v´ÑÃM¤h(knight)¨«§¹´Ñ½Lªº¶¶§Ç
+//è¥¿æ´‹æ£‹é¨å£«(knight)èµ°å®Œæ£‹ç›¤çš„é †åº
 #include<iostream>
 #include<cstdio>
 #include<iomanip>
@@ -8,7 +6,7 @@ using namespace std;
 
 class Node{
 	private:
-		int a[3];      //i¶b¤§­È¡Bj¶b¤§­È¡B¦ì¸m¤w¨«¹Lªº½s¸¹ 
+		int a[3];      //iè»¸ä¹‹å€¼ã€jè»¸ä¹‹å€¼ã€ä½ç½®å·²èµ°éçš„ç·¨è™Ÿ 
 		Node *next;
 	public:
 		Node();
@@ -23,14 +21,14 @@ Node::Node()
 class stack{
 	private:
 		Node *Top;
-		int floor;   //stack¦³´X¼h 
+		int floor;   //stackæœ‰å¹¾å±¤ 
 	public:
 		stack();
-		int IsEmpty();   //§PÂ_stack¬O§_¬°ªÅ 
-		int geta0();     //±o¨ìi 
-		int geta1();     //±o¨ìj 
-		int geta2();     //±o¨ìnum 
-		int getfloor();  //±o¨ì´X¼h 
+		int IsEmpty();   //åˆ¤æ–·stackæ˜¯å¦ç‚ºç©º 
+		int geta0();     //å¾—åˆ°i 
+		int geta1();     //å¾—åˆ°j 
+		int geta2();     //å¾—åˆ°num 
+		int getfloor();  //å¾—åˆ°å¹¾å±¤ 
 		void push( int i , int j , int num );  //push stack 
 		void pop();      //pop stack 
 		
@@ -44,49 +42,49 @@ stack::stack()     //constructor
 	floor=0;
 }
 
-int stack::geta0()    //¦^¶Çi 
+int stack::geta0()    //å›å‚³i 
 {
 	return Top->a[0]; 
 }
 
-int stack::geta1()    //¦^¶Çj 
+int stack::geta1()    //å›å‚³j 
 {
 	return Top->a[1];
 }
 
-int stack::geta2()    //¦^¶Çnum 
+int stack::geta2()    //å›å‚³num 
 {
 	return Top->a[2];
 }
 
-int stack::getfloor()   //¦^¶Çfloor 
+int stack::getfloor()   //å›å‚³floor 
 { 
 	return floor;
 }
 
-int stack::IsEmpty()    //§PÂ_¬O§_¬°ªÅ 
+int stack::IsEmpty()    //åˆ¤æ–·æ˜¯å¦ç‚ºç©º 
 {
 	if( Top==NULL )
-		return 1;       //ªÅ¦^¶Ç1 ¤Ï¤§¦^¶Ç0 
+		return 1;       //ç©ºå›å‚³1 åä¹‹å›å‚³0 
 	else return 0;
 }
 
-void stack::push( int i , int j , int num )   //push¨ç¦¡ 
+void stack::push( int i , int j , int num )   //pushå‡½å¼ 
 {
-	Node *newa;      //«Ø¥ß¤@­Ó·sªºnode  
+	Node *newa;      //å»ºç«‹ä¸€å€‹æ–°çš„node  
 	newa = new Node;  //malloc(sizeof(Node));
 	newa->next=Top;   
 	newa->a[0]=i;
 	newa->a[1]=j;
 	newa->a[2]=num;
-	Top=newa;        //·snodeÅÜTop 
-	floor++;         //¥[¤@¼h 
+	Top=newa;        //æ–°nodeè®ŠTop 
+	floor++;         //åŠ ä¸€å±¤ 
 }
 
-void stack::pop()   //pop¨ç¦¡ 
+void stack::pop()   //popå‡½å¼ 
 {
 	Top=Top->next;   
-	floor--;        //´î¤@¼h 
+	floor--;        //æ¸›ä¸€å±¤ 
 }
 
 
@@ -96,9 +94,9 @@ int main()
 	stack A;
 	int array[100][100];
 	int n;          
-	cin >> n ;       //n*n°}¦C 
+	cin >> n ;       //n*né™£åˆ— 
 	
-	for( int i=0 ; i<100 ; i++ )        //°}¦C©Ò¦³¤¸¯À§¡³]©w¬°0 
+	for( int i=0 ; i<100 ; i++ )        //é™£åˆ—æ‰€æœ‰å…ƒç´ å‡è¨­å®šç‚º0 
 	{
 		for( int j=0 ; j<100 ; j++ )
 		{
@@ -109,7 +107,7 @@ int main()
 	int i=0 , j=0 , k=0 , num=0;
 	while(1)
 	{
-		if( i-2>=0 && j+1<n && num<1 && array[i-2][j+1]==0  ){       //³]©wK1 
+		if( i-2>=0 && j+1<n && num<1 && array[i-2][j+1]==0  ){       //è¨­å®šK1 
 			
 			num=1;
 			A.push(i,j,num);
@@ -118,7 +116,7 @@ int main()
 			j=j+1;
 			num=0;
 			
-		}else if( i-1>=0 && j+2<n && num<2 && array[i-1][j+2]==0 ){   //³]©wK2 
+		}else if( i-1>=0 && j+2<n && num<2 && array[i-1][j+2]==0 ){   //è¨­å®šK2 
 			
 			num=2;
 			A.push(i,j,num);
@@ -127,7 +125,7 @@ int main()
 			j=j+2;
 			num=0;
 			
-		} else if( i+1<n && j+2<n && num<3 && array[i+1][j+2]==0 ){   //³]©wK3 
+		} else if( i+1<n && j+2<n && num<3 && array[i+1][j+2]==0 ){   //è¨­å®šK3 
 			
 			num=3;
 			A.push(i,j,num);
@@ -136,7 +134,7 @@ int main()
 			j=j+2;
 			num=0;
 			
-		}else if( i+2<n && j+1<n && num<4 && array[i+2][j+1]==0 ){   //³]©wK4 
+		}else if( i+2<n && j+1<n && num<4 && array[i+2][j+1]==0 ){   //è¨­å®šK4 
 			
 			num=4;
 			A.push(i,j,num);
@@ -145,7 +143,7 @@ int main()
 			j=j+1;
 			num=0;
 			
-		}else if( i+2<n && j-1>=0 && num<5 && array[i+2][j-1]==0 ){  //³]©wK5 
+		}else if( i+2<n && j-1>=0 && num<5 && array[i+2][j-1]==0 ){  //è¨­å®šK5 
 			
 			num=5;
 			A.push(i,j,num);
@@ -154,7 +152,7 @@ int main()
 			j=j-1;
 			num=0;
 			
-		}else if( i+1<n && j-2>=0 && num<6 && array[i+1][j-2]==0 ){   //³]©wK6 
+		}else if( i+1<n && j-2>=0 && num<6 && array[i+1][j-2]==0 ){   //è¨­å®šK6 
 			
 			num=6;
 			A.push(i,j,num);
@@ -163,7 +161,7 @@ int main()
 			j=j-2;
 			num=0;
 			
-		}else if( i-1>=0 && j-2>=0 && num<7 && array[i-1][j-2]==0 ){   //³]©wK7 
+		}else if( i-1>=0 && j-2>=0 && num<7 && array[i-1][j-2]==0 ){   //è¨­å®šK7 
 			
 			num=7;
 			A.push(i,j,num);
@@ -172,7 +170,7 @@ int main()
 			j=j-2;
 			num=0;
 			
-		}else if( i-2>=0 && j-1>=0 && num<8 && array[i-2][j-1]==0 ){   //³]©wK8 
+		}else if( i-2>=0 && j-1>=0 && num<8 && array[i-2][j-1]==0 ){   //è¨­å®šK8 
 			
 			num=8;
 			A.push(i,j,num);
@@ -185,25 +183,25 @@ int main()
 			cout<<"no solution";   //n=2 ,no solution
 			break;
 		}else if( n == 1){
-			array[0][0]=1;        //n=1 ,¥u¦³1 
+			array[0][0]=1;        //n=1 ,åªæœ‰1 
 			cout<<array[0][0];
 			break;
-		}else{                   //°²³]8ºØ¸ô½u³£¤£¦æ,¦^¤W¤@¨B  
-			array[i][j]=0;      //¦ì¸m­«³]0 
+		}else{                   //å‡è¨­8ç¨®è·¯ç·šéƒ½ä¸è¡Œ,å›ä¸Šä¸€æ­¥  
+			array[i][j]=0;      //ä½ç½®é‡è¨­0 
 			i = A.geta0();
 			j = A.geta1();
 			num = A.geta2();
-			A.pop();	       //stack¨ú¥X 
+			A.pop();	       //stackå–å‡º 
 			
 		}
 		
 		
-		if( A.IsEmpty() == 1 ){    //­Y¬°ªÅ no solution 
+		if( A.IsEmpty() == 1 ){    //è‹¥ç‚ºç©º no solution 
 			cout<<"no solution";
 			break;
 		}
 		
-		if( A.getfloor() == n*n-1 ){      //¥ş³¡¶]§¹¦L¥Xµ²ªG  
+		if( A.getfloor() == n*n-1 ){      //å…¨éƒ¨è·‘å®Œå°å‡ºçµæœ  
 			array[i][j]=n*n;
 			for(int i=0 ; i<n ;i++){
 				for(int j=0 ; j<n ; j++ ){
