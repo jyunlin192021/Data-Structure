@@ -1,6 +1,4 @@
-//ªL«³§¡ B093050069
-//Sept.07,2022 
-//«Ø³yC++ªº¶°¦XÃş§O
+//å»ºé€ C++çš„é›†åˆé¡åˆ¥
 #include<iostream>
 #include<string.h>
 using namespace std;
@@ -8,20 +6,20 @@ using namespace std;
 class TSet{
 	public:
 		TSet();						
-		string get();              //¨ú±o¦r¦ê 
-		void set();				   //¦r¥À©M0,1Âà´« 
-		void display();			   //¦L¥X 
-		friend istream& operator >>(istream& inputStream,TSet& T);  //¿é¤J 
-		friend TSet operator + (TSet &T1,TSet &T2);      //Áp¶° 
-		friend TSet operator * (TSet &T1,TSet &T2);      //¥æ¶°
-		friend TSet operator - (TSet &T1,TSet &T2);      //®t¶° 
-		friend bool operator >= (TSet &T1,TSet &T2);     //¥]§t 
+		string get();              //å–å¾—å­—ä¸² 
+		void set();				   //å­—æ¯å’Œ0,1è½‰æ› 
+		void display();			   //å°å‡º 
+		friend istream& operator >>(istream& inputStream,TSet& T);  //è¼¸å…¥ 
+		friend TSet operator + (TSet &T1,TSet &T2);      //è¯é›† 
+		friend TSet operator * (TSet &T1,TSet &T2);      //äº¤é›†
+		friend TSet operator - (TSet &T1,TSet &T2);      //å·®é›† 
+		friend bool operator >= (TSet &T1,TSet &T2);     //åŒ…å« 
 	private:
 		char a[256];
 		string str;
 }; 
 
-TSet::TSet()                  //ªì©l¤Æ 
+TSet::TSet()                  //åˆå§‹åŒ– 
 {
 	for(int i=0;i<256;i++)
 	{
@@ -49,16 +47,16 @@ void TSet::set()
 	
 	
 //	cout<<endl<<str<<endl;
-	for(int i=0 ; i<256 ; i++ )               //256­Óascii code½X 
+	for(int i=0 ; i<256 ; i++ )               //256å€‹ascii codeç¢¼ 
 	{
 		for( int j=0 ; j<str.size() ; j++ )    
 		{
-			if( str[j] == i)                 //¦³¦¹¦r¤¸¬°1 
+			if( str[j] == i)                 //æœ‰æ­¤å­—å…ƒç‚º1 
 			{
 				a[i]='1';
-				break;                       //­«½Æ¦r¤¸¸õ¹L 
+				break;                       //é‡è¤‡å­—å…ƒè·³é 
 			}else
-				a[i]='0';                    //¤Ï¤§¬°0 
+				a[i]='0';                    //åä¹‹ç‚º0 
 		}
 	}
 	
@@ -67,7 +65,7 @@ void TSet::set()
 }
 
 
-void TSet::display()                        //¿é¥X 
+void TSet::display()                        //è¼¸å‡º 
 {
 	
 	for( int i=0; i<256 ; i++ )
@@ -81,7 +79,7 @@ void TSet::display()                        //¿é¥X
 }
 
 
-istream& operator >> ( istream& inputStream, TSet& T )   //class¿é¤J 
+istream& operator >> ( istream& inputStream, TSet& T )   //classè¼¸å…¥ 
 {
 	
 	
@@ -94,7 +92,7 @@ istream& operator >> ( istream& inputStream, TSet& T )   //class¿é¤J
 }
 
 
-TSet operator + (TSet& T1, TSet& T2)         //Áp¶°( T1 or T2) 
+TSet operator + (TSet& T1, TSet& T2)         //è¯é›†( T1 or T2) 
 {  
 	TSet T3;
 	for(int i=0;i<256;i++)
@@ -108,7 +106,7 @@ TSet operator + (TSet& T1, TSet& T2)         //Áp¶°( T1 or T2)
 
 
 
-TSet operator * (TSet& T1, TSet& T2)         //¥æ¶°(T1 AND T2) 
+TSet operator * (TSet& T1, TSet& T2)         //äº¤é›†(T1 AND T2) 
 {
 	TSet T3;
 	for(int i=0;i<256;i++)
@@ -120,7 +118,7 @@ TSet operator * (TSet& T1, TSet& T2)         //¥æ¶°(T1 AND T2)
 	return T3;
 }
 
-TSet operator - (TSet& T1, TSet& T2)         //®t¶°(T1 AND ~T2) 
+TSet operator - (TSet& T1, TSet& T2)         //å·®é›†(T1 AND ~T2) 
 {
 	TSet T3;
 	for(int i=0;i<256;i++)
@@ -132,7 +130,7 @@ TSet operator - (TSet& T1, TSet& T2)         //®t¶°(T1 AND ~T2)
 	return T3;
 }
 
-bool operator >= (TSet& T1, TSet& T2)        //¥]§t(T1 AND T2 = T2) 
+bool operator >= (TSet& T1, TSet& T2)        //åŒ…å«(T1 AND T2 = T2) 
 {
 	TSet T3 = T1*T2;
 	for(int i=0; i<256 ; i++ )
