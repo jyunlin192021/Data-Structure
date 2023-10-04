@@ -1,6 +1,4 @@
-//B093040069 ªL«³§¡ 
-//2022/11/09
-//binary tree¤§À³¥Î 
+//binary treeä¹‹æ‡‰ç”¨ 
 #include<iostream>
 using namespace std;
 class BST;
@@ -41,9 +39,9 @@ public:
     }
     return successor;
 	}
-    TreeNode* Search(int N){ 												//¬d¸ß¬O§_¦³N 
+    TreeNode* Search(int N){ 												//æŸ¥è©¢æ˜¯å¦æœ‰N 
     	TreeNode *current = root;               
-   		 while (current != NULL && N != current->num) {  					//1.¨S§ä¨ì2.§ä¨ì¸õ¥X°j°é 
+   		 while (current != NULL && N != current->num) {  					//1.æ²’æ‰¾åˆ°2.æ‰¾åˆ°è·³å‡ºè¿´åœˆ 
        		if (N < current->num)                  
             	current = current->left;  		
         	else 
@@ -58,11 +56,11 @@ public:
 		x = root;
     	while (x != NULL) {                      
         	y = x;                        
-      	 	if (insert_node->num < x->num) 						//§PÂ_©ñ¥ª¥k 
+      	 	if (insert_node->num < x->num) 						//åˆ¤æ–·æ”¾å·¦å³ 
             	x = x->left;
        	 	else if(insert_node->num > x->num )
             	x = x->right;
-            else{												//­Y¦³¤@¼ËDelete 
+            else{												//è‹¥æœ‰ä¸€æ¨£Delete 
             	Delete(N);
             	return;
 			}
@@ -111,7 +109,7 @@ public:
     y = 0;
 }
 
-void output()								//outputµ²ªG 
+void output()								//outputçµæœ 
 {
     //print node
     TreeNode *current = leftmost(root);
