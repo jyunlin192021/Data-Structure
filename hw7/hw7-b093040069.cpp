@@ -1,6 +1,4 @@
-//B093040069 ªL«³§¡
-//2022/11/17
-// sortingºtºâªk°õ¦æ®Ä²v 
+// sortingæ¼”ç®—æ³•åŸ·è¡Œæ•ˆç‡ 
 #include <iostream>
 #include <vector>
 #include<fstream>
@@ -25,7 +23,7 @@ void Insertion(int *arr,int size) //Insertion sort
 	}
  } 
 
-void displayInsertion(int *arr, int size){   //Insertionsortµ²ªG¼g¤JÀÉ®× 
+void displayInsertion(int *arr, int size){   //Insertionsortçµæœå¯«å…¥æª”æ¡ˆ 
 	fstream file;
 	file.open("outputA.txt",ios::out | ios::trunc) ;
 	file<<"Insertion sort: "<<endl;
@@ -39,14 +37,14 @@ void displayInsertion(int *arr, int size){   //Insertionsortµ²ªG¼g¤JÀÉ®×
 
 void Merge(std::vector<int> &Array, int front, int mid, int end){
 
-    // §Q¥Î std::vector ªºconstructor, 
-    // §âarray[front]~array[mid]©ñ¶i LeftSub[]
-    // §âarray[mid+1]~array[end]©ñ¶i RightSub[]
+    // åˆ©ç”¨ std::vector çš„constructor, 
+    // æŠŠarray[front]~array[mid]æ”¾é€² LeftSub[]
+    // æŠŠarray[mid+1]~array[end]æ”¾é€² RightSub[]
     std::vector<int> LeftSub(Array.begin()+front, Array.begin()+mid+1),
                      RightSub(Array.begin()+mid+1, Array.begin()+end+1);
 
-    LeftSub.insert(LeftSub.end(), 50000);      // ¦bLeftSub[]§Àºİ¥[¤J­È¬° Max ªº¤¸¯À
-    RightSub.insert(RightSub.end(), 50000);    // ¦bRightSub[]§Àºİ¥[¤J­È¬° Max ªº¤¸¯À
+    LeftSub.insert(LeftSub.end(), 50000);      // åœ¨LeftSub[]å°¾ç«¯åŠ å…¥å€¼ç‚º Max çš„å…ƒç´ 
+    RightSub.insert(RightSub.end(), 50000);    // åœ¨RightSub[]å°¾ç«¯åŠ å…¥å€¼ç‚º Max çš„å…ƒç´ 
 
     int idxLeft = 0, idxRight = 0;
 
@@ -71,12 +69,12 @@ void Merge(std::vector<int> &Array, int front, int mid, int end){
 
 
 void MergeSort(std::vector<int> &array, int front, int end){
-                                         // front»Pend¬°¯x°}½d³ò
-    if (front < end) {                   // ªí¥Ü¥Ø«eªº¯x°}½d³ò¬O¦³®Äªº
-        int mid = (front+end)/2;         // mid§Y¬O±N¯x°}¹ï¥b¤Àªºindex
-        MergeSort(array, front, mid);    // Ä~Äòdivide¯x°}ªº«e¥b¬qsubarray
-        MergeSort(array, mid+1, end);    // Ä~Äòdivide¯x°}ªº«á¥b¬qsubarray
-        Merge(array, front, mid, end);   // ±N¨â­Ósubarray°µ¤ñ¸û, ¨Ã¦X¨Ö¥X±Æ§Ç«áªº¯x°}
+                                         // frontèˆ‡endç‚ºçŸ©é™£ç¯„åœ
+    if (front < end) {                   // è¡¨ç¤ºç›®å‰çš„çŸ©é™£ç¯„åœæ˜¯æœ‰æ•ˆçš„
+        int mid = (front+end)/2;         // midå³æ˜¯å°‡çŸ©é™£å°åŠåˆ†çš„index
+        MergeSort(array, front, mid);    // ç¹¼çºŒdivideçŸ©é™£çš„å‰åŠæ®µsubarray
+        MergeSort(array, mid+1, end);    // ç¹¼çºŒdivideçŸ©é™£çš„å¾ŒåŠæ®µsubarray
+        Merge(array, front, mid, end);   // å°‡å…©å€‹subarrayåšæ¯”è¼ƒ, ä¸¦åˆä½µå‡ºæ’åºå¾Œçš„çŸ©é™£
     }
 }
 
@@ -143,12 +141,12 @@ int main()
 	
 	//Insertion sort 
 	file.open( "input.txt");
-	while( file>>size )             //ÅªÀÉªº²Ä¤@¦æ size 
+	while( file>>size )             //è®€æª”çš„ç¬¬ä¸€è¡Œ size 
 	{
 		data= new int [size];
 		for(int i=0 ; i<size ; i++ )
 		{
-			file>>data[i];              //±µÄòÅª­È 
+			file>>data[i];              //æ¥çºŒè®€å€¼ 
 		}
 		
 		Insertion( data , size );
@@ -197,7 +195,7 @@ int main()
     }
 	file.close();
 		
-	//C¨ç¦¡®w stdlib.h¡@©Î cstdlib¡Aqsort( )¨ç¦¡
+	//Cå‡½å¼åº« stdlib.hã€€æˆ– cstdlibï¼Œqsort( )å‡½å¼
 	file.open("input.txt");
 	
 	while(file >> size)
@@ -219,7 +217,7 @@ int main()
         data = 0;
 	file.close();
 
-	//C++¨ç¦¡®w (STL) sort( )¨ç¦¡
+	//C++å‡½å¼åº« (STL) sort( )å‡½å¼
 	file.open("input.txt");
 	
 	while(file >> size)
@@ -243,7 +241,7 @@ int main()
 	
  
 	cout<<"finish"<<endl;
-//	cout << (double)clock() / CLOCKS_PER_SEC << "S"; //­pºâ®É¶¡ 
+//	cout << (double)clock() / CLOCKS_PER_SEC << "S"; //è¨ˆç®—æ™‚é–“ 
 	
 	
 	
