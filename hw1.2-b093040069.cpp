@@ -1,13 +1,11 @@
-//ªL«³§¡ B093050069
-//Sept.07,2022 
-//¶¥¼h»s§@ 
+//éšå±¤è£½ä½œ 
 #include<iostream>
 using namespace std;
 
 int main()
 {
-	//¿é¤J 
-	int input[10]={0};		 //ªì©l¤Æ¿é¤J°}¦C 
+	//è¼¸å…¥ 
+	int input[10]={0};		 //åˆå§‹åŒ–è¼¸å…¥é™£åˆ— 
 	int a=0;			      
 	while(1)                 
 	{
@@ -17,14 +15,14 @@ int main()
 			break;
 	}
 	
-	int arr[100]={0};       //ªì©l¤Æn!ªº¦s©ñ°}¦C 
+	int arr[100]={0};       //åˆå§‹åŒ–n!çš„å­˜æ”¾é™£åˆ— 
 	int b,high;				 
 	for(int k=0;k<a-1;k++)
 	{
 		int num=input[k];   
 		cout<<endl;
 		
-		for(int i=0;i<100;i++)  //­«·sÂk¹s
+		for(int i=0;i<100;i++)  //é‡æ–°æ­¸é›¶
 		{
 			arr[i]=0;
 		}
@@ -33,10 +31,10 @@ int main()
 		int z=1;
 		while(1)
 		{
-			for(int i=0;i<100;i++)   //­¼ªk¹Bºâ 
+			for(int i=0;i<100;i++)   //ä¹˜æ³•é‹ç®— 
 				arr[i]=arr[i]*z;
 				
-			for(int i=0;i<100;i++){        //³B²z¶i¦ì 
+			for(int i=0;i<100;i++){        //è™•ç†é€²ä½ 
 				if(arr[i]>=10){
 					b=arr[i]/10;
 					arr[i]=arr[i]%10;
@@ -44,7 +42,7 @@ int main()
 				}
 			}
 		
-			for(int w=99;w>=0;w--){     //¨ú³Ì°ª¦ì 
+			for(int w=99;w>=0;w--){     //å–æœ€é«˜ä½ 
 				if(arr[w]!=0){
 					high=w;
 					break;
@@ -52,7 +50,7 @@ int main()
 			} 
 			
 			
-			cout<<z<<"!=";             //¦L¥X 
+			cout<<z<<"!=";             //å°å‡º 
 			for(int i=high;i>=0;i--)
 				cout<<arr[i];	
 			cout<<endl;
